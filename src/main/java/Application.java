@@ -5,7 +5,9 @@ public class Application {
 
 
         try {
-           Game.run();
+
+            Game.run();
+
 
         } catch (IOException e) {
             e.printStackTrace();
