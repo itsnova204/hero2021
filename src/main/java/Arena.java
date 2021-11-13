@@ -4,7 +4,8 @@ import com.googlecode.lanterna.screen.Screen;
 import java.io.IOException;
 
 public class Arena {
-    private int width, height;
+    private int width;
+    private int height;
     private Hero hero;
 
     public Arena(int width,int height){
@@ -14,7 +15,7 @@ public class Arena {
         hero = new Hero(10, 10);
     }
 
-    public void draw(Screen screen) throws IOException {hero.draw(screen);}
+    public void draw(Screen screen) {hero.draw(screen);}
 
     public void moveHero(Position position) {
         if (canHeroMove(position))
@@ -22,10 +23,11 @@ public class Arena {
     }
 
     private Boolean canHeroMove(Position position){
-
+        return position.getX() > 0 && position.getX() < width &&
+               position.getY() > 0 && position.getY() < height;
     }
 
-    public void processKey(KeyStroke key) throws IOException {
+    public void processKey(KeyStroke key){
         switch (key.getKeyType()) {
             case ArrowUp:
                 System.out.println("arrow Up!");

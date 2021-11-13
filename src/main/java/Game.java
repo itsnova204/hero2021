@@ -17,9 +17,11 @@ public class Game {
             Terminal terminal = new
                     DefaultTerminalFactory().createTerminal();
             screen = new TerminalScreen(terminal);
-            screen.setCursorPosition(null);   // we don't need a
-            screen.startScreen();             // screens must be
-            screen.doResizeIfNecessary();     // resize screen
+            screen.setCursorPosition(null);
+            screen.startScreen();
+            screen.doResizeIfNecessary();
+
+            arena = new Arena(50,50);
 
             is_on = true;
         } catch (IOException e) {
@@ -41,5 +43,5 @@ public class Game {
         screen.refresh();
     }
 
-    private void processKey(KeyStroke key) throws IOException {arena.processKey(key);}
+    private void processKey(KeyStroke key){arena.processKey(key);}
 }
