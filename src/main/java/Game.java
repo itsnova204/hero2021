@@ -51,7 +51,7 @@ public class Game {
         switch (key.getKeyType()){
             case ArrowUp:
                 System.out.println("arrow Up!");
-                hero.moveUp();
+                hero.moveHero(hero.moveUp());
                 break;
             case ArrowDown:
                 System.out.println("arrow Down!");
@@ -74,6 +74,7 @@ public class Game {
             default:
                 break;
         }
+
 
     }
 }
