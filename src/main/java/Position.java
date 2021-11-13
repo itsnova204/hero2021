@@ -6,11 +6,6 @@ public class Position {
         setY(y);
     }
 
-    public void setPosition(Position position){
-        setX(position.getX());
-        setY(position.getY());
-    }
-
     public int getX() {
         return x;
     }

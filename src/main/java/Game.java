@@ -1,6 +1,4 @@
-import com.googlecode.lanterna.TextCharacter;
 import com.googlecode.lanterna.input.KeyStroke;
-import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
@@ -40,30 +38,33 @@ public class Game {
         }
     }
 
+    private void moveHero(Position position) {
+        hero.setPosition(position);
+    }
+
     private void draw() throws IOException {
         screen.clear();
         hero.draw(screen);
         screen.refresh();
     }
 
-    private void processKey(KeyStroke key) throws IOException {
-        KeyType press = key.getKeyType();
+    private void processKey(KeyStroke key) throws IOException {;
         switch (key.getKeyType()){
             case ArrowUp:
                 System.out.println("arrow Up!");
-                hero.moveHero(hero.moveUp());
+                moveHero(hero.moveUp());
                 break;
             case ArrowDown:
                 System.out.println("arrow Down!");
-                hero.moveDown();
+                moveHero(hero.moveDown());
                 break;
             case ArrowLeft:
                 System.out.println("arrow Left!");
-                hero.moveLeft();;
+                moveHero(hero.moveLeft());;
                 break;
             case ArrowRight:
                 System.out.println("arrow Right!");
-                hero.moveRight();;
+                moveHero(hero.moveRight());;
                 break;
             case Character:
                 if (key.getCharacter() == 'q') screen.close();
@@ -74,7 +75,5 @@ public class Game {
             default:
                 break;
         }
-
-
     }
 }
